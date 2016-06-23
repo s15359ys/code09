@@ -1,26 +1,43 @@
 console.log("start audio.js");
-var html, body, audio;
-html = document.children[0];
-body = html.children[1];
-audio = body.children[1];
+var h1, player;
+h1 = document.querySelector("#title");
+player = document.querySelector("audio");
 
-audio.play();
-audio.pause();
+player.play();
+player.pause();
 
 
 function rewind10sec(sec) {
  var rewind = sec-10;
- audio.currentTime = rewind;
+ player.currentTime = rewind;
 }
 
 function forward10sec(sec) {
  var forward = sec+10;
- audio.currentTime = forward;
+ player.currentTime = forward;
 }
 
 function play(){
-    audio.play();
+    player.play();
 }
 function pause(){
-    audio.pause();
+    player.pause();
 }
+
+function play(event){
+    var player = document.querySelector("audio");
+    console.log("play");
+    player.play();
+}
+
+var playButton = document.querySelector("[data-role=play]");
+playButton.addEventListener("click", play);
+
+function pause(event){
+    var player = document.querySelector("audio");
+    console.log("pause");
+    player.pause();
+}
+
+var pauseButton = document.querySelector("[data-role=pause]");
+pauseButton.addEventListener("click", pause);
